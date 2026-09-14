@@ -1,0 +1,5 @@
+# cp terraform.tfvars.example terraform.tfvars して値を埋めてから実行する。
+# terraform.tfvars は .gitignore 対象。
+
+project_id        = "discord-bot-507515"
+state_bucket_name = "discord-bot-507515-tfstate"

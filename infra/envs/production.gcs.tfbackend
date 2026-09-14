@@ -1,0 +1,5 @@
+# terraform init -backend-config=envs/production.gcs.tfbackend
+#
+# bucket は infra/bootstrap の terraform apply で作成したバケット名に合わせる。
+bucket = "discord-bot-507515-tfstate"
+prefix = "backend/production"

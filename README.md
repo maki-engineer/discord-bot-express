@@ -9,6 +9,7 @@
 | `discord-app` | Discord Bot 本体、Bot 用データの管理 | TypeScript, discord.js, Sequelize, PostgreSQL |
 | `backend` | メンバー情報などを取得する API | Go, Gin, GORM, PostgreSQL |
 | `frontend` | 誕生日メンバーなどを表示する Web UI | Next.js, React, TypeScript |
+| `infra` | Cloud Runの構成をTerraformで管理する | Terraform |
 | `.github` | CI/CD とレビュー用テンプレート | GitHub Actions |
 
 Bot 用の既存データ、マイグレーション、シーダーは `discord-app` にあります。`backend` は同じ PostgreSQL のデータを API として提供し、`frontend` はその API を利用します。

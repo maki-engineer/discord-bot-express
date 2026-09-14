@@ -1,0 +1,28 @@
+# Terraform の作業ディレクトリ
+.terraform/
+.terraform.tfstate.lock.info
+
+# State（リモートに置くため、ローカルには残さない）
+*.tfstate
+*.tfstate.*
+
+# Plan の出力（機密情報を含む可能性がある）
+*.tfplan
+*.tfplan.*
+
+# 変数ファイルのうち、秘密情報を含むもの
+terraform.tfvars
+*.auto.tfvars
+secrets.tfvars
+*.secret.tfvars
+
+# ローカルの上書き設定
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+crash.log
+crash.*.log
+
+# .terraform.lock.hcl はプロバイダのバージョンを固定するため、意図的にコミットする

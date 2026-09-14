@@ -1,0 +1,43 @@
+version: '3'
+
+vars:
+  VAR_FILE: envs/production.tfvars
+  BACKEND_CONFIG: envs/production.gcs.tfbackend
+
+tasks:
+  init:
+    desc: リモートStateを指定して初期化する
+    cmds:
+      - terraform init -backend-config={{.BACKEND_CONFIG}}
+    silent: true
+
+  fmt:
+    desc: フォーマットを整える
+    cmds:
+      - terraform fmt -recursive
+    silent: true
+
+  lint:
+    desc: フォーマットと構成のチェック
+    cmds:
+      - terraform fmt -check -recursive
+      - terraform validate
+    silent: true
+
+  plan:
+    desc: 差分を確認する
+    cmds:
+      - terraform plan -var-file={{.VAR_FILE}} {{.CLI_ARGS}}
+    silent: true
+
+  apply:
+    desc: 差分を適用する
+    cmds:
+      - terraform apply -var-file={{.VAR_FILE}} {{.CLI_ARGS}}
+    silent: true
+
+  output:
+    desc: 出力値を表示する
+    cmds:
+      - terraform output {{.CLI_ARGS}}
+    silent: true
