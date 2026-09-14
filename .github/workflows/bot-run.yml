@@ -20,9 +20,10 @@ jobs:
               echo "${{ secrets.ENV_VALUES }}" > .env && 
               npm install && 
               npm install sequelize-cli && 
-              docker compose up -d && 
               npx tsc -p . && 
-              npx sequelize-cli db:migrate && 
+              npx sequelize-cli db:migrate --env production && 
+              cd .. & 
+              docker compose -f docker-compose.prod.yml up -d && 
               docker logs discord-app -f
             env:
               POSTGRES_DB_UNITTEST: ${{ secrets.POSTGRES_DB_UNITTEST }}
