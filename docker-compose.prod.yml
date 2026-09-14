@@ -1,0 +1,12 @@
+services:
+  discord-app:
+    build:
+      context: ./discord-app
+      dockerfile: ./Dockerfile.prod
+    container_name: discord-app
+
+  voicevox-engine:
+    image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    container_name: voicevox_engine
+    ports:
+      - "50021:50021"
